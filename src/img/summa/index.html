@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>SEDS Attendance Portal</title>
+
+   <meta name="description" content="Kumaraguru SEDS is a student-led organization at Kumaraguru Institutions dedicated to space exploration, astronomy, and aerospace engineering through projects, workshops, and events, seds, kumaraguru, KCT SEDS">
+  <!-- Meta Keywords -->
+  <meta name="keywords" content="Kumaraguru SEDS, KCT SEDS, space exploration, astronomy club, aerospace engineering, student space projects, satellite design, rocketry, astrophysics, Kumaraguru Institutions">
+  <link rel="icon" href="sedsb.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="author" content="Manikandan N">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kumaraguruseds.space/">
+  <meta property="og:title" content="Kumaraguru SEDS">
+  <meta property="og:description" content="Kumaraguru SEDS is a student-driven chapter dedicated to space exploration, astronomy, and aerospace innovation. We conduct hands-on workshops, stargazing sessions, and technical projects to inspire curiosity and scientific learning. Our mission is to empower young minds to explore the universe and contribute to the advancement of space science and technology.">
+  <meta property="og:image" content="https://kumaraguruseds.space/sedsb.png">
+  <link rel="icon" href="src/img/SEDS3.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+    <style>
+        /* Ensuring placeholder visibility in HTML as requested */
+        #schedule-agenda::placeholder, #discussion-text::placeholder {
+            color: #ffffff !important;
+            opacity: 0.7;
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://attendance.kumaraguruseds.space/#WebApplication",
+      "name": "SEDS Attendance Portal",
+      "url": "https://attendance.kumaraguruseds.space/",
+      "description": "Internal management portal for Kumaraguru SEDS members. Handles attendance logging, mission scheduling, and personal performance tracking.",
+      "applicationCategory": "EducationalApplication, BusinessApplication",
+      "operatingSystem": "All",
+      "author": {
+        "@type": "Person",
+        "name": "Manikandan N"
+      },
+      "publisher": {
+        "@id": "https://kumaraguruseds.space/#Organization"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://kumaraguruseds.space/#Organization",
+      "name": "Kumaraguru SEDS",
+      "url": "https://kumaraguruseds.space/",
+      "logo": "https://kumaraguruseds.space/SEDS3.png",
+      "parentOrganization": {
+        "@type": "EducationalOrganization",
+        "name": "Kumaraguru College of Technology"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://attendance.kumaraguruseds.space/#WebPage",
+      "url": "https://attendance.kumaraguruseds.space/",
+      "name": "SEDS Attendance Portal Login",
+      "isPartOf": {
+        "@id": "https://attendance.kumaraguruseds.space/#WebApplication"
+      }
+    }
+  ]
+}
+    </script>
+    
+</head>
+<body>
+    <div class="stars-container"></div>
+    
+    <div class="login-container" id="login-view">
+        <div class="login-card">
+            <img src="src/img/SEDS.png" alt="SEDS Logo" class="login-logo">
+            <h2>Kumaraguru SEDS</h2>
+            <form onsubmit="event.preventDefault(); handleLogin();">
+                <div class="input-group">
+                   <input type="text" id="email" placeholder="Email ID or Roll Number" autocomplete="username" required>
+                </div>
+                <div class="input-group" style="position: relative;">
+                    <input type="password" id="password" placeholder="Password" autocomplete="current-password" required>
+                    <button type="button" id="togglePassword" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: white; display: flex; align-items: center; padding: 0;">
+                        <svg id="eyeOpen" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                            <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        <svg id="eyeClosed" style="display:none;" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+                            <line x1="1" y1="1" x2="23" y2="23"></line>
+                        </svg>
+                    </button>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%; font-size:17px;">Secure Login</button>
+                <p id="error-msg" style="color:red; margin-top:15px; font-size:0.9em;"></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="app-view" class="hidden">
+        <header>
+            <div class="user-info">
+                <img id="header-avatar" class="user-header-profile" src="" alt="User">
+                <div class="user-text">
+                    <h2 id="welcome-msg">Welcome</h2>
+                    <div id="user-roll" style="font-size:0.85rem; color:var(--muted); font-weight:600;"></div>
+                    <div style="margin-top:4px;">
+                        <span id="role-badge" class="role-badge">Lead</span>
+                        <span id="team-badge" class="team-badge">Team</span>
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-danger" onclick="logout()">Logout</button>
+        </header>
+
+        <div id="member-dashboard" class="hidden glass-container">
+            <h3 class="section-title">My Attendance Stats</h3><br>
+            <div class="stats-overview">
+                <div class="percentage-circle">
+                    <span class="big-percent" id="overall-percent">0%</span>
+                    <small>Overall</small>
+                </div>
+            </div>
+            <div class="grid-container" id="member-stats-grid"></div>
+        </div>
+
+        <div id="lead-dashboard" class="hidden">
+            <div class="glass-container" style="margin-bottom: 2rem; display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="color: white;">Meeting Management</h3>
+                <button class="btn btn-primary" onclick="toggleMeetingModal(true)" style="font-size: 17px;">Schedule Meeting</button>
+            </div> <br>
+
+            <div class="glass-container" style="margin-bottom: 20px;">
+                <h3>Mark Attendance</h3><br>
+                <input type="date" id="att-date" readonly class="search-input">
+            </div>
+
+            <div class="grid-container" id="members-grid"></div>
+
+            <div class="discussion-box glass-container">
+                <h3>Meeting Minutes</h3><br>
+                <textarea id="discussion-text" placeholder="What was discussed today?"></textarea>
+                <button class="btn btn-primary" id="submit-btn" onclick="submitAttendance()" style="margin-top:15px;">Submit & Notify Team</button>
+            </div>
+
+            <section class="history-section glass-container" style="margin-top: 2rem;">
+                <div class="history-header">
+                    <h3>Previous Sessions & Scheduled Missions</h3>
+                </div>
+                <div id="history-container">
+                    <p class="loading-state">Syncing mission logs...</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="admin-dashboard" class="hidden glass-container">
+            <h3 class="section-title">Admin Pro Analytics</h3><br>
+            <div class="filter-bar" style="display:flex; gap:10px; margin-bottom:15px;">
+                <input type="text" id="filter-text" class="search-input" placeholder="Search members or teams..." onkeyup="filterTable()">
+                <input type="date" id="filter-date" class="search-input" onchange="filterTable()">
+            </div>
+            <div style="overflow-x:auto;">
+                <table class="glass-table">
+                    <thead>
+                        <tr><th>Date</th><th>Team</th><th>Name</th><th>Status</th><th>Discussion</th><th>Email Status</th></tr>
+                    </thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="meeting-modal" class="modal-overlay hidden">
+        <div class="glass-container modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px;">
+                <h3 style="color: var(--accent);">New Meeting</h3>
+                <button class="btn-danger" style="padding: 5px 10px; border-radius: 5px; cursor: pointer;" onclick="toggleMeetingModal(false)">✕</button>
+            </div>
+            
+            <form id="meeting-form" onsubmit="event.preventDefault(); submitMeetingSchedule();">
+                <div class="input-group">
+                    <label>Team Name</label>
+                    <input type="text" id="schedule-team-display" class="search-input" style="width: 100%; background: rgba(255,255,255,0.05); color: var(--accent); font-weight: bold;" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label>Meeting Mode</label>
+                    <div style="display: flex; gap: 20px; margin-top: 10px; padding: 5px;">
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+                            <input type="radio" name="meeting-mode" value="Offline" checked onclick="toggleVenueLabel('Offline')"> Offline
+                        </label>
+                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-size: 14px;">
+                            <input type="radio" name="meeting-mode" value="Online" onclick="toggleVenueLabel('Online')"> Online
+                        </label>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+                    <div class="input-group">
+                        <label>Date</label>
+                        <input type="date" id="schedule-date" class="search-input" style="width: 100%;" required>
+                    </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="input-group">
+                            <label>Start Time</label>
+                            <input type="time" id="schedule-start-time" class="search-input" style="width: 100%;" required>
+                        </div>
+                        <div class="input-group">
+                            <label>End Time</label>
+                            <input type="time" id="schedule-end-time" class="search-input" style="width: 100%;" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label id="venue-label">Venue</label>
+                    <input type="text" id="schedule-venue" class="search-input" style="width: 100%;" placeholder="e.g. Aero Seminar Hall" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Agenda / Discussion Points</label>
+                    <textarea id="schedule-agenda" placeholder="What is the objective of this meeting?" style="height: 80px; width: 100%; color: white;" required></textarea>
+                </div>
+
+                <button type="submit" id="schedule-btn" class="btn btn-primary" style="width: 100%; margin-top: 10px; font-size: 16px;">Confirm Schedule</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
