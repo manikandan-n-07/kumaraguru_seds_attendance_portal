@@ -9,7 +9,6 @@
 [![Deployed on GitHub Pages](https://img.shields.io/badge/Deployed-GitHub%20Pages-blue?style=for-the-badge&logo=github)](https://attendance.kumaraguruseds.space/)
 [![PWA Ready](https://img.shields.io/badge/PWA-Ready-blueviolet?style=for-the-badge&logo=googlechrome&logoColor=white)]()
 [![Google Apps Script](https://img.shields.io/badge/Backend-Google%20Apps%20Script-orange?style=for-the-badge&logo=google&logoColor=white)]()
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 <br/>
 
