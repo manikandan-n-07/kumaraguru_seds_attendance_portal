@@ -382,12 +382,12 @@ git push origin fix/your-feature-name
 
 ---
 
-## <a id="author"></a>👨‍💻 Author
+# <a id="author"></a>👨‍💻 Author
 
 <div align="center">
 
-**Manikandan N**
-Media Team Lead — Kumaraguru SEDS
+# Manikandan N
+## *Media Team Lead — Kumaraguru SEDS*
 
 📧 [manilunar07@gmail.com](mailto:manilunar07@gmail.com)
 &nbsp;|&nbsp;
