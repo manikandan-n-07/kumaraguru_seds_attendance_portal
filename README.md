@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="src/img/SEDS.png" alt="SEDS Logo" width="250"/>
+<img src="src/img/SEDS.png" alt="SEDS Logo" width="200"/>
 
 # 🚀 Kumaraguru SEDS Attendance Portal
 
