@@ -25,22 +25,24 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [Key Features](#-key-features)
-- [Tech Stack](#-tech-stack)
-- [System Architecture](#-system-architecture)
-- [How It Works](#-how-it-works)
+## 📋 Table of Contents
+
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Tech Stack](#tech-stack)
+- [System Architecture](#system-architecture)
+- [How It Works](#how-it-works)
   - [Authentication Flow](#authentication-flow)
   - [Role-Based Dashboards](#role-based-dashboards)
   - [Strike System Logic](#strike-system-logic)
   - [Email Automation](#email-automation)
   - [Meeting Scheduler](#meeting-scheduler)
-- [Project Structure](#-project-structure)
-- [AppScript Backend](#-appscript-backend)
-- [Deployment](#-deployment)
-- [PWA Support](#-pwa-support)
-- [Contributing](#-contributing)
-- [Author](#-author)
+- [Project Structure](#project-structure)
+- [AppScript Backend](#appscript-backend)
+- [Deployment](#deployment)
+- [PWA Support](#pwa-support)
+- [Contributing](#contributing)
+- [Author](#author)
 
 ---
 
