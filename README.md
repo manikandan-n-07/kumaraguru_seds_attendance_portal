@@ -23,7 +23,6 @@
 
 ---
 
-## 📋 Table of Contents
 
 ## 📋 Table of Contents
 
@@ -46,7 +45,7 @@
 
 ---
 
-## 🌌 Overview
+## <a id="overview"></a>🌌 Overview
 
 The **SEDS Attendance Portal** is a lightweight, zero-cost, serverless web application. It uses **Google Sheets as a database** and **Google Apps Script as an API backend**, deployed as a static frontend on **GitHub Pages**.
 
@@ -54,7 +53,7 @@ The portal supports three user roles — **Member**, **Lead**, and **Admin Pro**
 
 ---
 
-## ✨ Key Features
+## <a id="key-features"></a>✨ Key Features
 
 ### 🔐 Authentication
 - Login with **Roll Number or Email ID** — both are accepted
@@ -139,7 +138,7 @@ Email types triggered:
 
 ---
 
-## 🛠️ Tech Stack
+## <a id="tech-stack"></a>🛠️ Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -154,7 +153,7 @@ Email types triggered:
 
 ---
 
-## 🏗️ System Architecture
+## <a id="system-architecture"></a>🏗️ System Architecture
 
 ```
 ┌───────────────────────────────────────────────────────────┐
@@ -194,9 +193,9 @@ Email types triggered:
 
 ---
 
-## 🔍 How It Works
+## <a id="how-it-works"></a>🔍 How It Works
 
-### Authentication Flow
+### <a id="authentication-flow"></a>Authentication Flow
 
 ```
 User enters Roll/Email + Password
@@ -212,7 +211,7 @@ Returns: { name, roll, email, team, role, image }
 Stored in localStorage → initApp() renders role-specific UI
 ```
 
-### Role-Based Dashboards
+### <a id="role-based-dashboards"></a>Role-Based Dashboards
 
 ```
 role === "Admin Pro"   →  loadAdmin()            →  full cross-team table
@@ -220,7 +219,7 @@ role === "Member"      →  loadMemberDashboard()  →  personal stats + timetab
 role === (Lead/other)  →  loadLeadDashboard()    →  mark attendance + history
 ```
 
-### Strike System Logic
+### <a id="strike-system-logic"></a>Strike System Logic
 
 The `calculateFullStrikeHistory()` function in `Attendance.gs` replays a member's full attendance history to compute their current strike count before each new entry:
 
@@ -241,7 +240,7 @@ For each past record of this member:
           (no strike — first excused absence)
 ```
 
-### Email Automation
+### <a id="email-automation"></a>Email Automation
 
 Every `submitAttendance` call triggers `sendHtmlEmail()` for each member based on the computed strike state:
 
@@ -255,7 +254,7 @@ Strikes >= 3                   → Termination email (red)
 
 An admin summary email is also sent to `ADMIN_EMAILS` after every session submission.
 
-### Meeting Scheduler
+### <a id="meeting-scheduler"></a>Meeting Scheduler
 
 ```
 Lead opens modal → fills date, time, venue, agenda, mode
@@ -274,7 +273,7 @@ Daily time trigger: sendMeetingEmails()  →  reminders for today / tomorrow
 
 ---
 
-## 📁 Project Structure
+## <a id="project-structure"></a>📁 Project Structure
 
 ```
 kumaraguru_seds_attendance_portal/
@@ -305,7 +304,7 @@ kumaraguru_seds_attendance_portal/
 
 ---
 
-## ⚙️ AppScript Backend
+## <a id="appscript-backend"></a>⚙️ AppScript Backend
 
 The backend consists of **4 Google Apps Script files**, each deployed as a separate Web App:
 
@@ -328,7 +327,7 @@ The backend consists of **4 Google Apps Script files**, each deployed as a separ
 
 ---
 
-## 🚀 Deployment
+## <a id="deployment"></a>🚀 Deployment
 
 This project deploys automatically via **GitHub Actions** on every push to `main`.
 
@@ -349,7 +348,7 @@ The `static.yml` workflow:
 
 ---
 
-## 📱 PWA Support
+## <a id="pwa-support"></a>📱 PWA Support
 
 The app is installable as a standalone Progressive Web App on both mobile and desktop.
 
@@ -363,7 +362,7 @@ The app is installable as a standalone Progressive Web App on both mobile and de
 
 ---
 
-## 🤝 Contributing
+## <a id="contributing"></a>🤝 Contributing
 
 This is an internal club tool, but contributions are welcome.
 
@@ -383,7 +382,7 @@ git push origin fix/your-feature-name
 
 ---
 
-## 👨‍💻 Author
+## <a id="author"></a>👨‍💻 Author
 
 <div align="center">
 
